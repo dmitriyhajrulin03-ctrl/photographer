@@ -5,7 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface GlassNavIconProps {
-  icon: React.ReactElement;
+  icon: React.ReactElement<{ className?: string }>;
   color: string;
   label: string;
   href: string;
