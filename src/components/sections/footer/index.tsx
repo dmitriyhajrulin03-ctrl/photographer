@@ -12,7 +12,7 @@ export function Footer() {
         </div>
         <div className="flex gap-4">
           <Link
-            href={siteConfig.links.twitter}
+            href={siteConfig.social.twitter}
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             target="_blank"
             rel="noopener noreferrer"
@@ -20,7 +20,7 @@ export function Footer() {
             Twitter
           </Link>
           <Link
-            href={siteConfig.links.instagram}
+            href={siteConfig.social.instagram}
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             target="_blank"
             rel="noopener noreferrer"
