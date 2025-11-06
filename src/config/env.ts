@@ -26,7 +26,8 @@ export function validateEnv() {
   } catch (error) {
     if (error instanceof z.ZodError) {
       console.error("❌ Invalid environment variables:");
-      error.errors.forEach((err) => {
+      const zodError = error as z.ZodError;
+      zodError.errors.forEach((err) => {
         console.error(`  - ${err.path.join(".")}: ${err.message}`);
       });
       throw new Error("Invalid environment variables");
