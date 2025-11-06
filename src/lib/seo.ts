@@ -43,7 +43,7 @@ export function generateMetadata(options: GenerateMetadataOptions = {}): Metadat
       template: siteConfig.seo.titleTemplate,
     },
     description,
-    keywords,
+    keywords: keywords ? [...keywords] : undefined,
     authors: authors.map((author) => ({ name: author })),
     creator: siteConfig.author,
     publisher: siteConfig.author,
