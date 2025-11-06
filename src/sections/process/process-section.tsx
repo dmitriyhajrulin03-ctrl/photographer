@@ -44,8 +44,8 @@ const workflowNodes = [
 
 export function ProcessSection() {
   return (
-    <section className="container py-20 md:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className="w-full">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Section - Text & CTA */}
           <div className="space-y-4">

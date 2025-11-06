@@ -129,8 +129,8 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/60 dark:from-background/80 dark:via-background/60 dark:to-background/80 -z-[5]" />
       
       {/* Content */}
-      <div className="container relative z-10 flex flex-col items-center justify-center space-y-8 py-20 md:py-32 px-4 sm:px-6 lg:px-8 pointer-events-auto">
-        <div className="mx-auto max-w-7xl w-full flex flex-col items-center space-y-8 text-center">
+      <div className="w-full relative z-10 flex flex-col items-center justify-center space-y-8 py-20 md:py-32 pointer-events-auto">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center space-y-8 text-center">
           <div className="space-y-4 max-w-4xl">
             <HeroTitle className="relative z-10 drop-shadow-lg text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight font-bold">
               Wir bringen Ihre Marke durch modernen

@@ -45,8 +45,8 @@ export function LogosSection() {
   const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
-    <section className="container py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-background">
-      <div className="mx-auto max-w-7xl">
+    <section className="w-full bg-white dark:bg-background">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="overflow-hidden relative">
           <div className="flex gap-8 md:gap-12 animate-logo-scroll">
             {duplicatedLogos.map((logo, index) => (

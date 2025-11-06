@@ -23,8 +23,9 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <section className="container py-20 md:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl space-y-12">
+    <section className="w-full">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div className="space-y-12">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-2 text-sm font-medium text-primary uppercase tracking-wider mb-2">
             <div className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -66,6 +67,7 @@ export function BenefitsSection() {
               </SpotlightCard>
             );
           })}
+        </div>
         </div>
       </div>
     </section>
