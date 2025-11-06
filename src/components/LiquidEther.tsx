@@ -85,6 +85,14 @@ export default function LiquidEther({
 
   useEffect(() => {
     if (!mountRef.current) return;
+    
+    // Check WebGL support
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) {
+      console.warn('WebGL is not supported, LiquidEther animation will not render');
+      return;
+    }
 
     function makePaletteTexture(stops: string[]): THREE.DataTexture {
       let arr: string[];
@@ -1220,8 +1228,8 @@ export default function LiquidEther({
   return (
     <div
       ref={mountRef}
-      className={`w-full h-full relative overflow-hidden pointer-events-none touch-none ${className || ''}`}
-      style={style}
+      className={`w-full h-full relative overflow-hidden pointer-events-none ${className || ''}`}
+      style={{ ...style, touchAction: 'none' }}
     />
   );
 }

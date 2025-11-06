@@ -190,4 +190,12 @@
 
 .animate-logo-scroll {
   animation: logo-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+/* Ensure logos are visible on mobile */
+@media (max-width: 768px) {
+  .animate-logo-scroll {
+    animation-duration: 25s;
+  }
 }

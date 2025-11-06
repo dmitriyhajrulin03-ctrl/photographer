@@ -75,11 +75,18 @@ function useMediaQuery(query: string): boolean {
 export function HeroSection() {
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [webglSupported, setWebglSupported] = useState(true);
   const [colors, setColors] = useState<string[]>(['#5227FF', '#FF9FFC', '#B19EEF']);
   const isMobile = useMediaQuery('(max-width: 768px)');
   
   useEffect(() => {
     setMounted(true);
+    // Check WebGL support
+    if (typeof window !== 'undefined') {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      setWebglSupported(!!gl);
+    }
     // Initial color setup
     setColors(getThemeColors());
   }, []);
@@ -104,8 +111,9 @@ export function HeroSection() {
   return (
     <section className="relative h-[100dvh] flex items-center justify-center overflow-hidden">
       {/* LiquidEther Background */}
-      <div className="absolute inset-0 w-full h-full -z-10">
-        <LiquidEther
+      <div className="absolute inset-0 w-full h-full -z-10" style={{ minHeight: '100vh' }}>
+        {mounted && webglSupported && (
+          <LiquidEther
           colors={colors}
           mouseForce={isMobile ? 15 : 20}
           cursorSize={isMobile ? 80 : 100}
@@ -123,6 +131,7 @@ export function HeroSection() {
           autoRampDuration={0.6}
           className="w-full h-full"
         />
+        )}
       </div>
       
       {/* Gradient overlay for better text readability */}

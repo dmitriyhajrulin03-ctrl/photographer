@@ -47,8 +47,8 @@ export function LogosSection() {
   return (
     <section className="w-full bg-white dark:bg-background">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="overflow-hidden relative">
-          <div className="flex gap-8 md:gap-12 animate-logo-scroll">
+        <div className="overflow-hidden relative w-full" style={{ minHeight: '80px' }}>
+          <div className="flex gap-8 md:gap-12 animate-logo-scroll will-change-transform">
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={`${logo.name}-${index}`}
