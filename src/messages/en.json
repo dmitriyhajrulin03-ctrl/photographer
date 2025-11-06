@@ -1,0 +1,14 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "portfolio": "Portfolio"
+  },
+  "hero": {
+    "title": "Professional Photography",
+    "description": "Capturing moments that last forever"
+  }
+}
+
+
