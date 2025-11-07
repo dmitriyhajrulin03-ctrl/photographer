@@ -59,19 +59,16 @@ const applyShiny = (node: React.ReactNode, disabled?: boolean): React.ReactNode 
       return node;
     }
 
-    const childProps = node.props ?? {};
-    if (childProps.children === undefined) {
+    const props = node.props as { children?: React.ReactNode };
+    if (props?.children === undefined || props.children === null) {
       return node;
     }
 
-    const processedChildren = React.Children.map(childProps.children, (child) =>
-      applyShiny(child, disabled)
+    const processedChildren = React.Children.map(props.children, (child) =>
+      applyShiny(child, disabled),
     );
 
-    return React.cloneElement(node, {
-      ...childProps,
-      children: processedChildren,
-    });
+    return React.cloneElement(node, undefined, processedChildren);
   }
 
   return node;
