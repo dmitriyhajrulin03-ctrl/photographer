@@ -1,9 +1,10 @@
 "use client";
 
-import { HeroTitle, HeroCTA } from "./elements";
+import { HeroCTA } from "./elements";
 import LiquidEther from "@/components/LiquidEther";
+import SplitText from "@/components/SplitText";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // Get colors from CSS variables by reading computed style
 function getThemeColors(): string[] {
@@ -78,6 +79,9 @@ export function HeroSection() {
   const [webglSupported, setWebglSupported] = useState(true);
   const [colors, setColors] = useState<string[]>(['#5227FF', '#FF9FFC', '#B19EEF']);
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const handleAnimationComplete = useCallback(() => {
+    // Placeholder for future side-effects when animation completes
+  }, []);
   
   useEffect(() => {
     setMounted(true);
@@ -141,11 +145,37 @@ export function HeroSection() {
       <div className="w-full relative z-10 flex flex-col items-center justify-center space-y-8 py-20 md:py-32 pointer-events-auto">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center space-y-8 text-center">
           <div className="space-y-4 max-w-4xl">
-            <HeroTitle className="relative z-10 drop-shadow-lg text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight font-bold">
-              Wir bringen Ihre Marke durch modernen
-              <br className="hidden sm:block" />
-              <span className="text-primary"> Content Creation ins Rampenlicht</span>
-            </HeroTitle>
+            <div className="flex flex-col items-center space-y-2">
+              <SplitText
+                text="Wir bringen Ihre Marke durch modernen"
+                tag="h1"
+                className="relative z-10 drop-shadow-lg text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight font-bold"
+                delay={80}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.2}
+                rootMargin="-80px"
+                textAlign="center"
+              />
+              <SplitText
+                text="Content Creation ins Rampenlicht"
+                tag="h1"
+                className="relative z-10 drop-shadow-lg text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight font-bold"
+                delay={80}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.2}
+                rootMargin="-80px"
+                textAlign="center"
+                onLetterAnimationComplete={handleAnimationComplete}
+              />
+            </div>
             <p className="max-w-2xl mx-auto text-center text-base sm:text-lg md:text-xl text-foreground/80 font-normal leading-relaxed drop-shadow-md">
               Moderner Content Creation, der Ihre Marke zum Strahlen bringt und authentisch mit Ihrer Zielgruppe verbindet.
             </p>
